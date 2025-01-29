@@ -7,16 +7,26 @@
     <script src="../node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
     <script src="../node_modules/lit/polyfill-support.js"></script>
     <script type="module" src="../my-element.js"></script>
+    <script type="module" src="../beep-message.js"></script>
     <style>
       p {
         border: solid 1px blue;
         padding: 8px;
       }
+      body {
+        display: flex;
+        flex-direction: column;
+      }
     </style>
   </head>
   <body>
+    <h1>Test du html</h1>
+    <beep-message>
+      <p>Mon paragraphe</p>
+    </beep-message>
+    <beep-message></beep-message>
     <my-element>
-      <p>This is child content</p>
+      <p>Mon paragraphito</p>
     </my-element>
   </body>
 </html>

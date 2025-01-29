@@ -1,0 +1,1 @@
+{"version":3,"file":"beep-message.d.ts","sourceRoot":"","sources":["src/beep-message.ts"],"names":[],"mappings":"AAAA;;;;GAIG;AAEH,OAAO,EAAC,UAAU,EAAY,MAAM,KAAK,CAAC;AAI1C,qBACa,SAAU,SAAQ,UAAU;IAGvC,OAAO,SAAY;IAEnB,OAAgB,MAAM,0BAYpB;IAEO,MAAM;IASf,OAAO,CAAC,QAAQ;CAMjB;AAED,OAAO,CAAC,MAAM,CAAC;IACb,UAAU,qBAAqB;QAC7B,cAAc,EAAE,SAAS,CAAC;KAC3B;CACF"}
