@@ -13,7 +13,8 @@ import { LitElement, html, css } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import { formatDistanceToNow } from 'date-fns';
 import { fr } from 'date-fns/locale';
-let MyElement = class MyElement extends LitElement {
+import '@kor-ui/kor/components/button';
+let BeepMessage = class BeepMessage extends LitElement {
     constructor() {
         super(...arguments);
         this.colLike = "silver";
@@ -30,7 +31,7 @@ let MyElement = class MyElement extends LitElement {
         </div>
         <p>${this.content}</p>
         <div>
-          <button class="like" @click=${this._onClick} part="button" style="background-color:${this.colLike};"></button>
+          <button class="like" @click=${this._onClick} part="button" style="background-color:${this.colLike};"></button> 
           <span>Likes : ${this.likes}</span>
         </div>
       </div>
@@ -47,7 +48,7 @@ let MyElement = class MyElement extends LitElement {
         }
     }
 };
-MyElement.styles = css `
+BeepMessage.styles = css `
     .message {
       display : flex;
       flex-direction: column;
@@ -68,21 +69,21 @@ MyElement.styles = css `
   `;
 __decorate([
     property({ type: String })
-], MyElement.prototype, "colLike", void 0);
+], BeepMessage.prototype, "colLike", void 0);
 __decorate([
     property({ type: String })
-], MyElement.prototype, "content", void 0);
+], BeepMessage.prototype, "content", void 0);
 __decorate([
     property({ type: String })
-], MyElement.prototype, "author", void 0);
+], BeepMessage.prototype, "author", void 0);
 __decorate([
     property({ type: Number })
-], MyElement.prototype, "likes", void 0);
+], BeepMessage.prototype, "likes", void 0);
 __decorate([
     property({ type: String })
-], MyElement.prototype, "date", void 0);
-MyElement = __decorate([
+], BeepMessage.prototype, "date", void 0);
+BeepMessage = __decorate([
     customElement('beep-message')
-], MyElement);
-export { MyElement };
+], BeepMessage);
+export { BeepMessage };
 //# sourceMappingURL=beep-message.js.map

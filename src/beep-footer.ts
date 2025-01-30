@@ -5,7 +5,8 @@
  */
 
 import {LitElement, html, css} from 'lit';
-import {customElement, property} from 'lit/decorators.js';
+import {customElement} from 'lit/decorators.js';
+import '@kor-ui/kor/components/button'
 
 
 @customElement('beep-footer')
@@ -15,6 +16,7 @@ export class BeepFooter extends LitElement {
         footer {
             display : flex;
             flex-direction: row;
+            justify-content : space-between;
             font-weight: bold;
             background-color: silver;
             padding : 20px;
@@ -28,6 +30,7 @@ export class BeepFooter extends LitElement {
                 <label for="post_message">Message :</label>
                 <input type="text" id="post_message">
             </form>
+            <kor-button label="Send"></kor-button>
         </footer>
     `;
   }

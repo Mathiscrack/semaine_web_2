@@ -4,7 +4,8 @@
  * SPDX-License-Identifier: BSD-3-Clause
  */
 import { LitElement } from 'lit';
-export declare class MyElement extends LitElement {
+import '@kor-ui/kor/components/button';
+export declare class BeepMessage extends LitElement {
     colLike: string;
     content: string;
     author: string;
@@ -16,7 +17,7 @@ export declare class MyElement extends LitElement {
 }
 declare global {
     interface HTMLElementTagNameMap {
-        'beep-message': MyElement;
+        'beep-message': BeepMessage;
     }
 }
 //# sourceMappingURL=beep-message.d.ts.map

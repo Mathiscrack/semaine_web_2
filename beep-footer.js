@@ -11,6 +11,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 import { LitElement, html, css } from 'lit';
 import { customElement } from 'lit/decorators.js';
+import '@kor-ui/kor/components/button';
 let BeepFooter = class BeepFooter extends LitElement {
     render() {
         return html `
@@ -19,6 +20,7 @@ let BeepFooter = class BeepFooter extends LitElement {
                 <label for="post_message">Message :</label>
                 <input type="text" id="post_message">
             </form>
+            <kor-button label="Send"></kor-button>
         </footer>
     `;
     }
@@ -27,6 +29,7 @@ BeepFooter.styles = css `
         footer {
             display : flex;
             flex-direction: row;
+            justify-content : space-between;
             font-weight: bold;
             background-color: silver;
             padding : 20px;

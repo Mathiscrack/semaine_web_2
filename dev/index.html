@@ -10,6 +10,8 @@
     <script type="module" src="../beep-message.js"></script>
     <script type="module" src="../beep-header.js"></script>
     <script type="module" src="../beep-footer.js"></script>
+    <script type="module" src="../beep-message-list.js"></script>
+    <link rel="stylesheet" type="text/css" href="../node_modules/@kor-ui/kor/kor-styles.css">
     <style>
       body {
         height: 100vh;
@@ -17,7 +19,7 @@
         flex-direction: column;
         margin: 0;
       }
-      .message-container {
+      beep-message-list {
         flex : 1 1;
         overflow-y: auto;
       }
@@ -29,17 +31,9 @@
   </head>
   <body>
     <beep-header></beep-header>
-    <div class="message-container">
-      <beep-message author="The first author" content="Mon message 1"></beep-message>
-      <beep-message author="The second author" content="Mon message 2"></beep-message>
-      <beep-message author="The second author" content="Mon message 3"></beep-message>
-      <beep-message author="The second author" content="Mon message 4"></beep-message>
-      <beep-message author="The second author" content="Mon message 5"></beep-message>
-      <beep-message author="The second author" content="Mon message 6"></beep-message>
-      <beep-message author="The second author" content="Mon message 7"></beep-message>
-      <beep-message author="The second author" content="Mon message 8"></beep-message>
-      <beep-message author="The second author" content="Mon message 9"></beep-message>
-    </div>
+
+    <beep-message-list></beep-message-list>
+
     <beep-footer></beep-footer>
   </body>
 </html>

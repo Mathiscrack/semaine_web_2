@@ -8,10 +8,11 @@ import {LitElement, html, css} from 'lit';
 import {customElement, property} from 'lit/decorators.js';
 import {formatDistanceToNow} from 'date-fns';
 import {fr} from 'date-fns/locale';
+import '@kor-ui/kor/components/button'
 
 
 @customElement('beep-message')
-export class MyElement extends LitElement {
+export class BeepMessage extends LitElement {
 
   @property({type : String})
   colLike = "silver";
@@ -56,7 +57,7 @@ export class MyElement extends LitElement {
         </div>
         <p>${this.content}</p>
         <div>
-          <button class="like" @click=${this._onClick} part="button" style="background-color:${this.colLike};"></button>
+          <button class="like" @click=${this._onClick} part="button" style="background-color:${this.colLike};"></button> 
           <span>Likes : ${this.likes}</span>
         </div>
       </div>
@@ -75,6 +76,6 @@ export class MyElement extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    'beep-message': MyElement;
+    'beep-message': BeepMessage;
   }
 }
