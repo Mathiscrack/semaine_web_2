@@ -44,11 +44,6 @@ export class MyElement extends LitElement {
     .author {
       font-size : 120%;
     }
-    .like_box {
-      display : flex;
-      flex-orientation : row;
-      gap : 10px;
-    }
   `;  
 
   override render() {
@@ -58,9 +53,9 @@ export class MyElement extends LitElement {
           <span class="author">${this.author}</span><span class="date">  -- posted on ${this.date}</span>
         </div>
         <p>${this.content}</p>
-        <div class="like_box">
+        <div>
           <button class="like" @click=${this._onClick} part="button" style="background-color:${this.colLike};"></button>
-          <div>Likes : ${this.likes}</div>
+          <span>Likes : ${this.likes}</span>
         </div>
       </div>
     `;
@@ -73,7 +68,6 @@ export class MyElement extends LitElement {
       this.colLike = "silver";
       this.likes--;
     }
-    this.dispatchEvent(new CustomEvent('color-changed'));
   }
 }
 
