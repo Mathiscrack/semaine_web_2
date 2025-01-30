@@ -11,6 +11,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 import { LitElement, html, css } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
+import { formatDistanceToNow } from 'date-fns';
+import { fr } from 'date-fns/locale';
 let MyElement = class MyElement extends LitElement {
     constructor() {
         super(...arguments);
@@ -18,13 +20,13 @@ let MyElement = class MyElement extends LitElement {
         this.content = "Test content";
         this.author = "Test author";
         this.likes = 0;
-        this.date = new Date().toISOString();
+        this.date = new Date();
     }
     render() {
         return html `
       <div class="message">
         <div>
-          <span class="author">${this.author}</span><span class="date">  -- posted on ${this.date}</span>
+          <span class="author">${this.author}</span><span class="date">  --  ${formatDistanceToNow(this.date, { addSuffix: true, locale: fr })}</span>
         </div>
         <p>${this.content}</p>
         <div>

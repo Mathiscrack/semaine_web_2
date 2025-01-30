@@ -6,6 +6,8 @@
 
 import {LitElement, html, css} from 'lit';
 import {customElement, property} from 'lit/decorators.js';
+import {formatDistanceToNow} from 'date-fns';
+import {fr} from 'date-fns/locale';
 
 
 @customElement('beep-message')
@@ -24,7 +26,7 @@ export class MyElement extends LitElement {
   likes = 0;
 
   @property({type : String})
-  date = new Date().toISOString();
+  date = new Date();
 
   static override styles = css`
     .message {
@@ -50,7 +52,7 @@ export class MyElement extends LitElement {
     return html`
       <div class="message">
         <div>
-          <span class="author">${this.author}</span><span class="date">  -- posted on ${this.date}</span>
+          <span class="author">${this.author}</span><span class="date">  --  ${formatDistanceToNow(this.date, {addSuffix :  true, locale : fr})}</span>
         </div>
         <p>${this.content}</p>
         <div>

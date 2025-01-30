@@ -1,0 +1,1 @@
+{"version":3,"file":"beep-footer.d.ts","sourceRoot":"","sources":["src/beep-footer.ts"],"names":[],"mappings":"AAAA;;;;GAIG;AAEH,OAAO,EAAC,UAAU,EAAY,MAAM,KAAK,CAAC;AAI1C,qBACa,UAAW,SAAQ,UAAU;IAExC,OAAgB,MAAM,0BAQpB;IAEO,MAAM;CAUhB;AAED,OAAO,CAAC,MAAM,CAAC;IACb,UAAU,qBAAqB;QAC7B,aAAa,EAAE,UAAU,CAAC;KAC3B;CACF"}

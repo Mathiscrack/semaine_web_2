@@ -8,23 +8,38 @@
     <script src="../node_modules/lit/polyfill-support.js"></script>
     <script type="module" src="../my-element.js"></script>
     <script type="module" src="../beep-message.js"></script>
+    <script type="module" src="../beep-header.js"></script>
+    <script type="module" src="../beep-footer.js"></script>
     <style>
-      p {
-        border: solid 1px blue;
-        padding: 8px;
-      }
       body {
+        height: 100vh;
         display: flex;
         flex-direction: column;
+        margin: 0;
       }
+      .message-container {
+        flex : 1 1;
+        overflow-y: auto;
+      }
+      beep-header {
+      flex : 0 0;
+      }
+      
     </style>
   </head>
   <body>
-    <h1>Test du html</h1>
-    <beep-message author="The first author" content="Mon message 1"></beep-message>
-    <beep-message author="The second author" content="Mon message 2"></beep-message>
-    <my-element>
-      <p>Mon paragraphito</p>
-    </my-element>
+    <beep-header></beep-header>
+    <div class="message-container">
+      <beep-message author="The first author" content="Mon message 1"></beep-message>
+      <beep-message author="The second author" content="Mon message 2"></beep-message>
+      <beep-message author="The second author" content="Mon message 3"></beep-message>
+      <beep-message author="The second author" content="Mon message 4"></beep-message>
+      <beep-message author="The second author" content="Mon message 5"></beep-message>
+      <beep-message author="The second author" content="Mon message 6"></beep-message>
+      <beep-message author="The second author" content="Mon message 7"></beep-message>
+      <beep-message author="The second author" content="Mon message 8"></beep-message>
+      <beep-message author="The second author" content="Mon message 9"></beep-message>
+    </div>
+    <beep-footer></beep-footer>
   </body>
 </html>
