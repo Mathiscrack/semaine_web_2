@@ -14,8 +14,8 @@ type Message = {
     liked: boolean;
 };
 export declare class BeepMessageList extends LitElement {
-    _messagesTask: Task<readonly ["test"], Message[]>;
     static styles: import("lit").CSSResult;
+    _messagesTask: Task<readonly ["test"], Message[]>;
     render(): import("lit-html").TemplateResult<1>;
 }
 declare global {

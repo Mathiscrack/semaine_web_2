@@ -22,9 +22,10 @@ let BeepMessage = class BeepMessage extends LitElement {
         this.date = new Date().toISOString();
         this.likes = 0;
         this.liked = false;
-        this.colLike = this.liked ? "red" : "silver";
     }
     render() {
+        console.log(this.liked);
+        const colLike = this.liked ? "red" : "silver";
         return html `
       <div class="message">
         <div>
@@ -32,7 +33,7 @@ let BeepMessage = class BeepMessage extends LitElement {
         </div>
         <p>${this.content}</p>
         <div>
-          <button class="like" @click=${this._onClick} part="button" style="background-color:${this.colLike};"></button> 
+          <button class="like" @click=${this._onClick} part="button" style="background-color:${colLike};"></button> 
           <span>Likes : ${this.likes}</span>
         </div>
       </div>
@@ -47,7 +48,7 @@ let BeepMessage = class BeepMessage extends LitElement {
           this.likes--;
         }*/
         this.liked = !this.liked;
-        this.colLike = this.liked ? "red" : "silver";
+        this.likes += this.liked ? 1 : -1;
     }
 };
 BeepMessage.styles = css `

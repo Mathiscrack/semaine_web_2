@@ -12,7 +12,6 @@ export declare class BeepMessage extends LitElement {
     likes: number;
     liked: boolean;
     static styles: import("lit").CSSResult;
-    colLike: String;
     render(): import("lit-html").TemplateResult<1>;
     private _onClick;
 }

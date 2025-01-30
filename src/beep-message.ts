@@ -49,9 +49,10 @@ export class BeepMessage extends LitElement {
     }
   `;  
 
-    colLike : String = this.liked ? "red" : "silver";
 
   override render() {
+    console.log(this.liked);
+    const colLike : String = this.liked ? "red" : "silver";
     return html`
       <div class="message">
         <div>
@@ -59,7 +60,7 @@ export class BeepMessage extends LitElement {
         </div>
         <p>${this.content}</p>
         <div>
-          <button class="like" @click=${this._onClick} part="button" style="background-color:${this.colLike};"></button> 
+          <button class="like" @click=${this._onClick} part="button" style="background-color:${colLike};"></button> 
           <span>Likes : ${this.likes}</span>
         </div>
       </div>
@@ -73,8 +74,9 @@ export class BeepMessage extends LitElement {
       this.colLike = "silver";
       this.likes--;
     }*/
+    
     this.liked = !this.liked;
-    this.colLike = this.liked ? "red" : "silver";
+    this.likes += this.liked ? 1 : -1;
   }
 }
 

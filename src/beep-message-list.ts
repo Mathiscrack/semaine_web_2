@@ -65,6 +65,9 @@ const messages: Message[] = [
 
 @customElement('beep-message-list')
 export class BeepMessageList extends LitElement {
+  static override styles = css`
+  `;
+
   _messagesTask = new Task(this, {
     args: () => ["test"],
     task: () => {
@@ -76,8 +79,6 @@ export class BeepMessageList extends LitElement {
     }
     });
 
-  static override styles = css`
-  `;  
 
   /*override render() {
     return html`${messages.map(message => html`
@@ -101,8 +102,9 @@ export class BeepMessageList extends LitElement {
                 content=${message.content}
                 date=${message.date}
                 author=${message.author}
-                liked=${message.liked}
-                likes=${message.likes}></beep-message>
+                ?liked=${message.liked}
+                likes=${message.likes}
+                ></beep-message>
             `)}
         })}`
         })}`
