@@ -11,6 +11,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 import { LitElement, html, css } from 'lit';
 import { customElement } from 'lit/decorators.js';
+import { Task } from '@lit/task';
 import './beep-message';
 const messages = [
     {
@@ -58,17 +59,45 @@ const messages = [
     },
 ];
 let BeepMessageList = class BeepMessageList extends LitElement {
+    constructor() {
+        super(...arguments);
+        this._messagesTask = new Task(this, {
+            args: () => ["test"],
+            task: () => {
+                return new Promise((resolve) => {
+                    setTimeout(() => {
+                        resolve(messages);
+                    }, 2000);
+                });
+            }
+        });
+    }
+    /*override render() {
+      return html`${messages.map(message => html`
+          <beep-message
+              content=${message.content}
+              date=${message.date}
+              author=${message.author}
+              liked=${message.liked}
+              likes=${message.likes}
+              ></beep-message>
+          `)}
+      `;
+    }*/
     render() {
-        return html `${messages.map(message => html `
-        <beep-message
-            content=${message.content}
-            date=${message.date}
-            author=${message.author}
-            liked=${message.liked}
-            likes=${message.likes}
-            ></beep-message>
-        `)}
-    `;
+        return html `${this._messagesTask.render({
+            initial: () => html `<p>Waiting to start task</p>`,
+            pending: () => html `<p>Running task...</p>`,
+            complete: (messages) => html `${messages.map(message => html `
+            <beep-message
+                content=${message.content}
+                date=${message.date}
+                author=${message.author}
+                liked=${message.liked}
+                likes=${message.likes}></beep-message>
+            `)}
+        })}`
+        })}`;
     }
 };
 BeepMessageList.styles = css `

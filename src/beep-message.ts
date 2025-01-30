@@ -15,19 +15,19 @@ import '@kor-ui/kor/components/button'
 export class BeepMessage extends LitElement {
 
   @property({type : String})
-  colLike = "silver";
-
-  @property({type : String})
   content = "Test content";
 
   @property({type : String})
   author = "Test author";
 
+  @property({type : String})
+  date = new Date().toISOString();
+
   @property({type : Number})
   likes = 0;
 
-  @property({type : String})
-  date = new Date();
+  @property({type : Boolean})
+  liked = false;
 
   static override styles = css`
     .message {
@@ -49,6 +49,8 @@ export class BeepMessage extends LitElement {
     }
   `;  
 
+    colLike : String = this.liked ? "red" : "silver";
+
   override render() {
     return html`
       <div class="message">
@@ -64,13 +66,15 @@ export class BeepMessage extends LitElement {
     `;
   }
   private _onClick() {
-    if (this.colLike === "silver") {
+    /*if (this.colLike === "silver") {
       this.colLike = "red";
       this.likes++;
     }else {
       this.colLike = "silver";
       this.likes--;
-    }
+    }*/
+    this.liked = !this.liked;
+    this.colLike = this.liked ? "red" : "silver";
   }
 }
 

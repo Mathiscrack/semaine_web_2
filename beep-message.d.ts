@@ -6,12 +6,13 @@
 import { LitElement } from 'lit';
 import '@kor-ui/kor/components/button';
 export declare class BeepMessage extends LitElement {
-    colLike: string;
     content: string;
     author: string;
+    date: string;
     likes: number;
-    date: Date;
+    liked: boolean;
     static styles: import("lit").CSSResult;
+    colLike: String;
     render(): import("lit-html").TemplateResult<1>;
     private _onClick;
 }

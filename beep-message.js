@@ -17,11 +17,12 @@ import '@kor-ui/kor/components/button';
 let BeepMessage = class BeepMessage extends LitElement {
     constructor() {
         super(...arguments);
-        this.colLike = "silver";
         this.content = "Test content";
         this.author = "Test author";
+        this.date = new Date().toISOString();
         this.likes = 0;
-        this.date = new Date();
+        this.liked = false;
+        this.colLike = this.liked ? "red" : "silver";
     }
     render() {
         return html `
@@ -38,14 +39,15 @@ let BeepMessage = class BeepMessage extends LitElement {
     `;
     }
     _onClick() {
-        if (this.colLike === "silver") {
-            this.colLike = "red";
-            this.likes++;
-        }
-        else {
-            this.colLike = "silver";
-            this.likes--;
-        }
+        /*if (this.colLike === "silver") {
+          this.colLike = "red";
+          this.likes++;
+        }else {
+          this.colLike = "silver";
+          this.likes--;
+        }*/
+        this.liked = !this.liked;
+        this.colLike = this.liked ? "red" : "silver";
     }
 };
 BeepMessage.styles = css `
@@ -69,19 +71,19 @@ BeepMessage.styles = css `
   `;
 __decorate([
     property({ type: String })
-], BeepMessage.prototype, "colLike", void 0);
-__decorate([
-    property({ type: String })
 ], BeepMessage.prototype, "content", void 0);
 __decorate([
     property({ type: String })
 ], BeepMessage.prototype, "author", void 0);
 __decorate([
+    property({ type: String })
+], BeepMessage.prototype, "date", void 0);
+__decorate([
     property({ type: Number })
 ], BeepMessage.prototype, "likes", void 0);
 __decorate([
-    property({ type: String })
-], BeepMessage.prototype, "date", void 0);
+    property({ type: Boolean })
+], BeepMessage.prototype, "liked", void 0);
 BeepMessage = __decorate([
     customElement('beep-message')
 ], BeepMessage);
