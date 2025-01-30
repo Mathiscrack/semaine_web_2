@@ -15,22 +15,33 @@ let MyElement = class MyElement extends LitElement {
     constructor() {
         super(...arguments);
         this.colLike = "silver";
+        this.content = "Test content";
+        this.author = "Test author";
+        this.likes = 0;
+        this.date = new Date().toISOString();
     }
     render() {
         return html `
       <div class="message">
-        <div>Author</div>
-        <div>Message</div>
-        <button class="like" @click=${this._onClick} part="button" style="background-color:${this.colLike};"></button>
+        <div>
+          <span class="author">${this.author}</span><span class="date">  -- posted on ${this.date}</span>
+        </div>
+        <p>${this.content}</p>
+        <div class="like_box">
+          <button class="like" @click=${this._onClick} part="button" style="background-color:${this.colLike};"></button>
+          <div>Likes : ${this.likes}</div>
+        </div>
       </div>
     `;
     }
     _onClick() {
         if (this.colLike === "silver") {
             this.colLike = "red";
+            this.likes++;
         }
         else {
             this.colLike = "silver";
+            this.likes--;
         }
         this.dispatchEvent(new CustomEvent('color-changed'));
     }
@@ -47,10 +58,33 @@ MyElement.styles = css `
       width : 1vw;
       aspect-ratio : 1 / 1;
     }
+    .date {
+      font-size : 70%;
+    }
+    .author {
+      font-size : 120%;
+    }
+    .like_box {
+      display : flex;
+      flex-orientation : row;
+      gap : 10px;
+    }
   `;
 __decorate([
     property({ type: String })
 ], MyElement.prototype, "colLike", void 0);
+__decorate([
+    property({ type: String })
+], MyElement.prototype, "content", void 0);
+__decorate([
+    property({ type: String })
+], MyElement.prototype, "author", void 0);
+__decorate([
+    property({ type: Number })
+], MyElement.prototype, "likes", void 0);
+__decorate([
+    property({ type: String })
+], MyElement.prototype, "date", void 0);
 MyElement = __decorate([
     customElement('beep-message')
 ], MyElement);

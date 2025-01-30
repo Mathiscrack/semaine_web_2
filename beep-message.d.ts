@@ -6,6 +6,10 @@
 import { LitElement } from 'lit';
 export declare class MyElement extends LitElement {
     colLike: string;
+    content: string;
+    author: string;
+    likes: number;
+    date: string;
     static styles: import("lit").CSSResult;
     render(): import("lit-html").TemplateResult<1>;
     private _onClick;

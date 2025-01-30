@@ -14,6 +14,18 @@ export class MyElement extends LitElement {
   @property({type : String})
   colLike = "silver";
 
+  @property({type : String})
+  content = "Test content";
+
+  @property({type : String})
+  author = "Test author";
+
+  @property({type : Number})
+  likes = 0;
+
+  @property({type : String})
+  date = new Date().toISOString();
+
   static override styles = css`
     .message {
       display : flex;
@@ -26,21 +38,41 @@ export class MyElement extends LitElement {
       width : 1vw;
       aspect-ratio : 1 / 1;
     }
+    .date {
+      font-size : 70%;
+    }
+    .author {
+      font-size : 120%;
+    }
+    .like_box {
+      display : flex;
+      flex-orientation : row;
+      gap : 10px;
+    }
   `;  
 
   override render() {
     return html`
       <div class="message">
-        <div>Author</div>
-        <div>Message</div>
-        <button class="like" @click=${this._onClick} part="button" style="background-color:${this.colLike};"></button>
+        <div>
+          <span class="author">${this.author}</span><span class="date">  -- posted on ${this.date}</span>
+        </div>
+        <p>${this.content}</p>
+        <div class="like_box">
+          <button class="like" @click=${this._onClick} part="button" style="background-color:${this.colLike};"></button>
+          <div>Likes : ${this.likes}</div>
+        </div>
       </div>
     `;
   }
   private _onClick() {
     if (this.colLike === "silver") {
       this.colLike = "red";
-    }else {this.colLike = "silver"}
+      this.likes++;
+    }else {
+      this.colLike = "silver";
+      this.likes--;
+    }
     this.dispatchEvent(new CustomEvent('color-changed'));
   }
 }
